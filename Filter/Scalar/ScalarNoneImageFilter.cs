@@ -1,17 +1,13 @@
 ﻿using WinFormsApp1.Core;
 
-namespace WinFormsApp1.Filter.Sharp
+namespace WinFormsApp1.Filter.Scalar
 {
-    public class SharpenImageFilter : ScalarImageFilter
+    public class ScalarNoneImageFilter : ScalarImageFilter
     {
-        public Image applyFilter(Image image, double value)
-        {
-            return image;
-        }
 
         public FilterType getApplicableFilterType()
         {
-            return FilterType.SHARPEN_FILTER;
+            return FilterType.SCALAR_NONE_FILTER;
         }
 
         public void Dispose()

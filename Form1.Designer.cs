@@ -31,15 +31,29 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("Filter1", 0);
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("Filter10", 9);
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("Filter11", 10);
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("Filter12", 11);
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("Filter13", 12);
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("Filter14", 13);
+            System.Windows.Forms.ListViewItem listViewItem7 = new System.Windows.Forms.ListViewItem("Filter15", 14);
+            System.Windows.Forms.ListViewItem listViewItem8 = new System.Windows.Forms.ListViewItem("Filter16", 15);
+            System.Windows.Forms.ListViewItem listViewItem9 = new System.Windows.Forms.ListViewItem("Filter17", 16);
+            System.Windows.Forms.ListViewItem listViewItem10 = new System.Windows.Forms.ListViewItem("Filter18", 17);
+            System.Windows.Forms.ListViewItem listViewItem11 = new System.Windows.Forms.ListViewItem(new string[] {
             "Filter2",
             "Button2"}, 1);
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem12 = new System.Windows.Forms.ListViewItem(new string[] {
             "Filter3",
             ""}, 2);
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem13 = new System.Windows.Forms.ListViewItem(new string[] {
             "Filter4",
             ""}, 3);
+            System.Windows.Forms.ListViewItem listViewItem14 = new System.Windows.Forms.ListViewItem("Filter5", 4);
+            System.Windows.Forms.ListViewItem listViewItem15 = new System.Windows.Forms.ListViewItem("Filter6", 5);
+            System.Windows.Forms.ListViewItem listViewItem16 = new System.Windows.Forms.ListViewItem("Filter7", 6);
+            System.Windows.Forms.ListViewItem listViewItem17 = new System.Windows.Forms.ListViewItem("Filter8", 7);
+            System.Windows.Forms.ListViewItem listViewItem18 = new System.Windows.Forms.ListViewItem("Filter9", 8);
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
@@ -47,19 +61,8 @@
             this.helpProvider = new System.Windows.Forms.HelpProvider();
             this.helpButton = new System.Windows.Forms.Button();
             this.filterList = new System.Windows.Forms.ListView();
-            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.filterImageList = new System.Windows.Forms.ImageList(this.components);
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.saveButton = new System.Windows.Forms.Button();
             this.showButton = new System.Windows.Forms.Button();
@@ -94,7 +97,6 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -131,178 +133,104 @@
             listViewItem1.StateImageIndex = 0;
             listViewItem1.ToolTipText = "Click to apply filter1";
             listViewItem2.StateImageIndex = 0;
-            listViewItem2.ToolTipText = "Click to apply filter2";
+            listViewItem2.ToolTipText = "Click to aply filter10";
             listViewItem3.StateImageIndex = 0;
-            listViewItem3.ToolTipText = "Click to apply filter3";
+            listViewItem3.ToolTipText = "Click to apply filter11";
             listViewItem4.StateImageIndex = 0;
-            listViewItem4.ToolTipText = "Click to apply filter4";
+            listViewItem4.ToolTipText = "Click to apply filter12";
+            listViewItem5.StateImageIndex = 0;
+            listViewItem5.ToolTipText = "Click to apply filter13";
+            listViewItem6.StateImageIndex = 0;
+            listViewItem6.ToolTipText = "Click to apply filter14";
+            listViewItem7.StateImageIndex = 0;
+            listViewItem7.ToolTipText = "Click to appy filter15";
+            listViewItem8.StateImageIndex = 0;
+            listViewItem8.ToolTipText = "Click to apply filter16";
+            listViewItem9.StateImageIndex = 0;
+            listViewItem9.ToolTipText = "Click to apply filter17";
+            listViewItem10.StateImageIndex = 0;
+            listViewItem10.ToolTipText = "Click to apply filter18";
+            listViewItem11.StateImageIndex = 0;
+            listViewItem11.ToolTipText = "Click to apply filter2";
+            listViewItem12.StateImageIndex = 0;
+            listViewItem12.ToolTipText = "Click to apply filter3";
+            listViewItem13.StateImageIndex = 0;
+            listViewItem13.ToolTipText = "Click to apply filter4";
+            listViewItem14.StateImageIndex = 0;
+            listViewItem14.ToolTipText = "Click to apply filter5";
+            listViewItem15.StateImageIndex = 0;
+            listViewItem15.ToolTipText = "Click to apply filter6";
+            listViewItem16.StateImageIndex = 0;
+            listViewItem16.ToolTipText = "Click to apply filter7";
+            listViewItem17.StateImageIndex = 0;
+            listViewItem17.ToolTipText = "Click to apply filter8";
+            listViewItem18.StateImageIndex = 0;
+            listViewItem18.ToolTipText = "Click to apply filter9";
             this.filterList.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2,
             listViewItem3,
-            listViewItem4});
+            listViewItem4,
+            listViewItem5,
+            listViewItem6,
+            listViewItem7,
+            listViewItem8,
+            listViewItem9,
+            listViewItem10,
+            listViewItem11,
+            listViewItem12,
+            listViewItem13,
+            listViewItem14,
+            listViewItem15,
+            listViewItem16,
+            listViewItem17,
+            listViewItem18});
             this.filterList.LabelWrap = false;
-            this.filterList.LargeImageList = this.imageList2;
             this.filterList.Location = new System.Drawing.Point(255, 3);
             this.filterList.MultiSelect = false;
             this.filterList.Name = "filterList";
             this.helpProvider.SetShowHelp(this.filterList, true);
             this.filterList.ShowItemToolTips = true;
             this.filterList.Size = new System.Drawing.Size(715, 177);
-            this.filterList.SmallImageList = this.imageList1;
+            this.filterList.SmallImageList = this.filterImageList;
             this.filterList.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.filterList.TabIndex = 15;
             this.filterList.UseCompatibleStateImageBehavior = false;
             this.filterList.View = System.Windows.Forms.View.SmallIcon;
             this.filterList.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.listView1_ItemCheck);
             // 
-            // imageList2
+            // filterImageList
             // 
-            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList2.ImageStream")));
-            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList2.Images.SetKeyName(0, "16x16-information-icon-png-transparent-1.png");
-            this.imageList2.Images.SetKeyName(1, "download.jpg");
-            this.imageList2.Images.SetKeyName(2, "16x16-information-icon-png-transparent-1.png");
-            this.imageList2.Images.SetKeyName(3, "download.jpg");
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "16x16-information-icon-png-transparent-1.png");
-            this.imageList1.Images.SetKeyName(1, "download.jpg");
-            this.imageList1.Images.SetKeyName(2, "16x16-information-icon-png-transparent-1.png");
-            this.imageList1.Images.SetKeyName(3, "download.jpg");
+            this.filterImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.filterImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("filterImageList.ImageStream")));
+            this.filterImageList.TransparentColor = System.Drawing.Color.Transparent;
+            this.filterImageList.Images.SetKeyName(0, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(1, "download.jpg");
+            this.filterImageList.Images.SetKeyName(2, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(3, "download.jpg");
+            this.filterImageList.Images.SetKeyName(4, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(5, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(6, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(7, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(8, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(9, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(10, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(11, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(12, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(13, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(14, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(15, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(16, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(17, "16x16-information-icon-png-transparent-1.png");
+            this.filterImageList.Images.SetKeyName(18, "16x16-information-icon-png-transparent-1.png");
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Controls.Add(this.radioButton1);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton2);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton3);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton4);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton5);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton6);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton7);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton8);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton9);
-            this.flowLayoutPanel2.Controls.Add(this.radioButton10);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(570, 1698);
             this.flowLayoutPanel2.TabIndex = 3;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(3, 3);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(141, 29);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(150, 3);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(141, 29);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(297, 3);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(141, 29);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(3, 38);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(141, 29);
-            this.radioButton4.TabIndex = 3;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "radioButton4";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(150, 38);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(141, 29);
-            this.radioButton5.TabIndex = 4;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "radioButton5";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(297, 38);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(141, 29);
-            this.radioButton6.TabIndex = 5;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "radioButton6";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(3, 73);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(141, 29);
-            this.radioButton7.TabIndex = 6;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "radioButton7";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(150, 73);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(141, 29);
-            this.radioButton8.TabIndex = 7;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "radioButton8";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // radioButton9
-            // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(297, 73);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(141, 29);
-            this.radioButton9.TabIndex = 8;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "radioButton9";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(3, 108);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(151, 29);
-            this.radioButton10.TabIndex = 9;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "radioButton10";
-            this.radioButton10.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel1
             // 
@@ -632,7 +560,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(3840, 2130);
             this.tableLayoutPanel1.TabIndex = 0;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
             // Form1
             // 
@@ -643,8 +570,6 @@
             this.Name = "Form1";
             this.Text = "GUI Editor";
             this.ClientSizeChanged += new System.EventHandler(this.clientSize_ClientSizeChanged);
-            this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -662,16 +587,6 @@
         private SaveFileDialog saveFileDialog1;
         private HelpProvider helpProvider;
         private FlowLayoutPanel flowLayoutPanel2;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
-        private RadioButton radioButton4;
-        private RadioButton radioButton5;
-        private RadioButton radioButton6;
-        private RadioButton radioButton7;
-        private RadioButton radioButton8;
-        private RadioButton radioButton9;
-        private RadioButton radioButton10;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button saveButton;
         private Button showButton;
@@ -708,7 +623,6 @@
         private PictureBox pictureBox1;
         private TableLayoutPanel tableLayoutPanel1;
         private ListView filterList;
-        private ImageList imageList1;
-        private ImageList imageList2;
+        private ImageList filterImageList;
     }
 }

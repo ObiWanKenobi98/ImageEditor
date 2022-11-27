@@ -3,10 +3,17 @@ using System.Runtime.InteropServices;
 
 namespace WinFormsApp1.Filter.Applier
 {
-    public class MatrixFilterApplier : FilterApplier
+    public class DefaultConvolutionalFilterApplier : ConvolutionalFilterApplier
     {
-        public Image appplyFilter(Image image, ConvolutionalImageFilter imageFilter, double factor = 1, int bias = 0)
+        public Image applyFilter(Image image, ConvolutionalImageFilter imageFilter)
         {
+            double factor = imageFilter.getFactor();
+            double bias = imageFilter.getBias();
+            if (image == null)
+            {
+                MessageBox.Show("There is no uploded file that can be modifed!", "File not uploaded MessageBox", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return image;
+            }
             Bitmap sourceBitmap = new Bitmap(image);
             double[,] filterMatrix = imageFilter.getCovolutionMatrix();
             BitmapData sourceData = sourceBitmap.LockBits(new Rectangle(0, 0,
@@ -125,6 +132,11 @@ namespace WinFormsApp1.Filter.Applier
             Marshal.Copy(resultBuffer, 0, resultData.Scan0, resultBuffer.Length);
             resultBitmap.UnlockBits(resultData);
 
+            sourceBitmap = null;
+            pixelBuffer = null;
+            resultBuffer = null;
+            sourceData = null;
+            image = null;
 
             return resultBitmap;
         }

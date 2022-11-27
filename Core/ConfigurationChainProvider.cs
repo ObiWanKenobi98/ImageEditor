@@ -1,4 +1,6 @@
 ﻿using WinFormsApp1.Filter;
+using WinFormsApp1.Filter.Convolution;
+using WinFormsApp1.Filter.Scalar;
 
 namespace WinFormsApp1.Core
 {
@@ -8,7 +10,9 @@ namespace WinFormsApp1.Core
         public static List<ConfigurationChain> provideConfigurationChain()
         {
             List<ConfigurationChain> configurationChains = new List<ConfigurationChain>();
-            configurationChains.Add(new ImageFilterConfiguration());
+            configurationChains.Add(new ScalarImageFilterConfiguration());
+            configurationChains.Add(new ConvolutionImageFilterConfiguration());
+            configurationChains.Add(new FilterConfiguration());
             return configurationChains;
         }
     }

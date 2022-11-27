@@ -4,9 +4,9 @@
     {
 
         private double[,] convolutionMatrix = new double[,] {
-                    {  1, 1, 1, },
-                    {  1, 1, 1, },
-                    {  1, 1, 1, },
+                    {  1, 2, 1, },
+                    {  2, 4, 2, },
+                    {  1, 2, 1, },
                 };
         public void Dispose()
         {
@@ -20,6 +20,11 @@
         public double[,] getCovolutionMatrix()
         {
             return convolutionMatrix;
+        }
+
+        public double getFactor()
+        {
+            return 1.0 / 16;
         }
     }
 }

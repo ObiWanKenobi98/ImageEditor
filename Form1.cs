@@ -2,6 +2,7 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using WinFormsApp1.Filter;
+using WinFormsApp1.Filter.Preview;
 using static System.Windows.Forms.ListView;
 
 namespace WinFormsApp1
@@ -12,16 +13,17 @@ namespace WinFormsApp1
         {
             InitializeComponent();
             this.imageFilterRegistry = provider.GetRequiredService<ImageFilterRegistry>();
+            this.filterPreviewProvider = provider.GetRequiredService<FilterPreviewProvider>();
         }
 
         private ImageFilterRegistry imageFilterRegistry;
+        private FilterPreviewProvider filterPreviewProvider;
         private Bitmap initialBitmap;
         private int initialRedScrollBarValue;
         private int initialGreenScrollBarValue;
         private int initialBlueScrollBarValue;
         private int initialAlphaScrollBarValue;
         private ImageList initialSmallImageList;
-        private ImageList initialLargeImageList;
 
         private void showButton_Click(object sender, EventArgs e)
         {
@@ -57,16 +59,9 @@ namespace WinFormsApp1
                 initialSmallImageList = new ImageList();
                 ImageList smallImageList = filterList.SmallImageList;
                 initialSmallImageList.ImageSize = new Size(smallImageList.ImageSize.Width, smallImageList.ImageSize.Height);
-                initialLargeImageList = new ImageList();
-                ImageList largeImageList = filterList.LargeImageList;
-                initialLargeImageList.ImageSize = new Size(largeImageList.ImageSize.Width, largeImageList.ImageSize.Height);
                 for (int i = 0; i < smallImageList.Images.Count; i++)
                 {
                     initialSmallImageList.Images.Add(smallImageList.Images[i]);
-                }
-                for (int i = 0; i < largeImageList.Images.Count; i++)
-                {
-                    initialLargeImageList.Images.Add(largeImageList.Images[i]);
                 }
                 generateFilterPreviews(e);
             }
@@ -491,11 +486,6 @@ namespace WinFormsApp1
             pictureBox1.Image = imageFilterRegistry.applyScalarFilter(initialBitmap, multiplier, FilterType.NEGATIVE_FILTER);
         }
 
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void helpButton_Click(object sender, EventArgs e)
         {
 
@@ -511,6 +501,24 @@ namespace WinFormsApp1
                 {
                     e.NewValue = CheckState.Unchecked;
                 }
+                else
+                {
+                    FilterType filterType = imageFilterRegistry.getAllFilterTypes().ElementAt(e.Index);
+                    List<FilterType> scalarFilterTypes = imageFilterRegistry.getScalarFilterTypes();
+                    List<FilterType> convolutionalFilterTypes = imageFilterRegistry.getConvolutionalFilterTypes();
+                    if (scalarFilterTypes.Contains(filterType))
+                    {
+                        pictureBox1.Image = imageFilterRegistry.applyScalarFilter(pictureBox1.Image, 1.0, filterType);
+                    }
+                    else if (convolutionalFilterTypes.Contains(filterType))
+                    {
+                        pictureBox1.Image = imageFilterRegistry.applyConvolutionalFilter(pictureBox1.Image, filterType);
+                    }
+                    else
+                    {
+                        MessageBox.Show("OOPS! This filter type can not be used right now.", "Filter Type can not be used MessageBox", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
                 for (int i = 0; i < items.Count; i++)
                 {
                     if (i != e.Index && !items[i].Checked)
@@ -525,6 +533,7 @@ namespace WinFormsApp1
                 {
                     items[i].ForeColor = SystemColors.WindowText;
                 }
+                pictureBox1.Image = initialBitmap;
             }
         }
 
@@ -536,25 +545,19 @@ namespace WinFormsApp1
                 MessageBox.Show("There is no uploded file that can be modifed!", "File not uploaded MessageBox", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            filterList.SmallImageList.Images.Clear();
-            filterList.LargeImageList.Images.Clear();
-            foreach (FilterType filterType in Enum.GetValues(typeof(FilterType)))
-            {
-                filterList.SmallImageList.Images.Add(imageFilterRegistry.applyScalarFilter(new Bitmap(initialBitmap), 1.0, filterType).GetThumbnailImage(128, 128, null, (IntPtr)0));
-                filterList.LargeImageList.Images.Add(imageFilterRegistry.applyScalarFilter(new Bitmap(initialBitmap), 1.0, filterType).GetThumbnailImage(128, 128, null, (IntPtr)0));
-            }
+            filterPreviewProvider.generateFilterPreviews(filterList.SmallImageList.Images, image);
         }
 
         private void restoreFilterPreviews()
         {
             filterList.SmallImageList = initialSmallImageList;
-            filterList.LargeImageList = initialLargeImageList;
             ListViewItemCollection items = filterList.Items;
             for (int i = 0; i < items.Count; i++)
             {
                 items[i].Checked = false;
                 items[i].Selected = false;
             }
+            pictureBox1.Image = initialBitmap;
         }
 
         private void clientSize_ClientSizeChanged(Object sender, EventArgs e)

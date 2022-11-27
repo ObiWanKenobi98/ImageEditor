@@ -3,6 +3,6 @@
     public interface ConvolutionalFilterApplier : FilterApplier
     {
 
-        public Image appplyFilter(Image image, double value, ConvolutionalImageFilter imageFilter);
+        public Image applyFilter(Image image, ConvolutionalImageFilter imageFilter);
     }
 }
