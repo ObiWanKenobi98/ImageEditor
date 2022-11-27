@@ -1,13 +1,8 @@
-using System;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Threading.Tasks.Dataflow;
-using System.Windows.Forms;
-using static System.Windows.Forms.ListView;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using Microsoft.Extensions.DependencyInjection;
+using System.Drawing.Imaging;
+using System.Runtime.InteropServices;
+using WinFormsApp1.Filter;
+using static System.Windows.Forms.ListView;
 
 namespace WinFormsApp1
 {
@@ -33,7 +28,7 @@ namespace WinFormsApp1
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 pictureBox1.Load(openFileDialog1.FileName);
-                initialBitmap = new Bitmap((Image) pictureBox1.Image.Clone());
+                initialBitmap = new Bitmap((Image)pictureBox1.Image.Clone());
                 double sumR = 0;
                 double sumG = 0;
                 double sumB = 0;
@@ -51,13 +46,13 @@ namespace WinFormsApp1
                         sumA += color.A;
                     }
                 }
-                redScrollBar.Value = (int) (sumR / (width * height) / 255 * redScrollBar.Maximum);
+                redScrollBar.Value = (int)(sumR / (width * height) / 255 * redScrollBar.Maximum);
                 initialRedScrollBarValue = redScrollBar.Value;
-                greenScrollBar.Value = (int) (sumG / (width * height) / 255 * greenScrollBar.Maximum);
+                greenScrollBar.Value = (int)(sumG / (width * height) / 255 * greenScrollBar.Maximum);
                 initialGreenScrollBarValue = greenScrollBar.Value;
-                blueScrollBar.Value = (int) (sumB / (width * height) / 255 * blueScrollBar.Maximum);
+                blueScrollBar.Value = (int)(sumB / (width * height) / 255 * blueScrollBar.Maximum);
                 initialBlueScrollBarValue = blueScrollBar.Value;
-                alphaScrollBar.Value = (int) (sumA / (width * height) / 255 * alphaScrollBar.Maximum);
+                alphaScrollBar.Value = (int)(sumA / (width * height) / 255 * alphaScrollBar.Maximum);
                 initialAlphaScrollBarValue = alphaScrollBar.Value;
                 initialSmallImageList = new ImageList();
                 ImageList smallImageList = filterList.SmallImageList;
@@ -146,7 +141,7 @@ namespace WinFormsApp1
             Parallel.For(0, imageBytes.Length / 3, (index) =>
             {
                 byte initialValue = initialImageBytes[index * 3 + 2];
-                imageBytes[index * 3 + 2] = (byte) (Math.Max(Math.Min(initialValue * 1.0 * (1 + redMultiplier - initialRedMultiplier), 255), 0));
+                imageBytes[index * 3 + 2] = (byte)(Math.Max(Math.Min(initialValue * 1.0 * (1 + redMultiplier - initialRedMultiplier), 255), 0));
             });
             Marshal.Copy(initialImageBytes, 0, initialScan0, initialImageBytes.Length);
             initialImageBytes = null;
@@ -181,7 +176,7 @@ namespace WinFormsApp1
             Parallel.For(0, imageBytes.Length / 3, (index) =>
             {
                 byte initialValue = initialImageBytes[index * 3 + 1];
-                imageBytes[index * 3 + 1] = (byte)(Math.Max(Math.Min(initialValue * 1.0 * (1 + greenMultiplier - initialGreenMultiplier), 255), 0));;
+                imageBytes[index * 3 + 1] = (byte)(Math.Max(Math.Min(initialValue * 1.0 * (1 + greenMultiplier - initialGreenMultiplier), 255), 0)); ;
             });
             Marshal.Copy(initialImageBytes, 0, initialScan0, initialImageBytes.Length);
             initialImageBytes = null;
@@ -251,7 +246,7 @@ namespace WinFormsApp1
             Parallel.For(0, imageBytes.Length / 4, (index) =>
             {
                 byte initialValue = initialImageBytes[index * 4 + 3];
-                imageBytes[index * 4 + 3] = (byte)(Math.Max(Math.Min(initialValue * 1.0 * (1 + alphaMultiplier - initialAlphaMultiplier), 255), 0));;
+                imageBytes[index * 4 + 3] = (byte)(Math.Max(Math.Min(initialValue * 1.0 * (1 + alphaMultiplier - initialAlphaMultiplier), 255), 0)); ;
             });
             Marshal.Copy(initialImageBytes, 0, initialScan0, initialImageBytes.Length);
             initialImageBytes = null;
@@ -280,7 +275,7 @@ namespace WinFormsApp1
             Parallel.For(0, imageBytes.Length / 4, (index) =>
             {
                 byte alphaComputedValue = imageBytes[index * 4 + 3];
-                imageBytes[index * 4] = (byte)(Math.Max(Math.Min(alphaComputedValue, (byte) 255), (byte) 0));
+                imageBytes[index * 4] = (byte)(Math.Max(Math.Min(alphaComputedValue, (byte)255), (byte)0));
                 imageBytes[index * 4 + 1] = (byte)(Math.Max(Math.Min(alphaComputedValue, (byte)255), (byte)0));
                 imageBytes[index * 4 + 2] = (byte)(Math.Max(Math.Min(alphaComputedValue, (byte)255), (byte)0));
             });
@@ -371,9 +366,9 @@ namespace WinFormsApp1
                 int pixel = 0;
                 pixel = ~BitConverter.ToInt32(imageBytes, index * 4);
                 negativesBuffer = BitConverter.GetBytes(pixel);
-                imageBytes[index * 4] = (byte)(Math.Max(Math.Min(negativesBuffer[0], (byte) 255), (byte) 0));
-                imageBytes[index * 4 + 1] = (byte)(Math.Max(Math.Min(negativesBuffer[1], (byte) 255), (byte) 0));
-                imageBytes[index * 4 + 2] = (byte)(Math.Max(Math.Min(negativesBuffer[2], (byte) 255), (byte) 0));
+                imageBytes[index * 4] = (byte)(Math.Max(Math.Min(negativesBuffer[0], (byte)255), (byte)0));
+                imageBytes[index * 4 + 1] = (byte)(Math.Max(Math.Min(negativesBuffer[1], (byte)255), (byte)0));
+                imageBytes[index * 4 + 2] = (byte)(Math.Max(Math.Min(negativesBuffer[2], (byte)255), (byte)0));
             });
             Marshal.Copy(imageBytes, 0, scan0, imageBytes.Length);
             imageBytes = null;
@@ -475,25 +470,25 @@ namespace WinFormsApp1
         private void transparencyScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             double multiplier = transparencyScrollBar.Value * 1.0 / transparencyScrollBar.Maximum;
-            pictureBox1.Image = imageFilterRegistry.applyFilter(initialBitmap, multiplier, FilterType.TRANSPARENCY_FILTER);
+            pictureBox1.Image = imageFilterRegistry.applyScalarFilter(initialBitmap, multiplier, FilterType.TRANSPARENCY_FILTER);
         }
 
         private void greyscaleScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             double multiplier = greyscaleScrollBar.Value * 1.0 / greyscaleScrollBar.Maximum;
-            pictureBox1.Image = imageFilterRegistry.applyFilter(initialBitmap, multiplier, FilterType.GREYSCALE_FILTER);
+            pictureBox1.Image = imageFilterRegistry.applyScalarFilter(initialBitmap, multiplier, FilterType.GREYSCALE_FILTER);
         }
 
         private void sepiaScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             double multiplier = sepiaScrollBar.Value * 1.0 / sepiaScrollBar.Maximum;
-            pictureBox1.Image = imageFilterRegistry.applyFilter(initialBitmap, multiplier, FilterType.SEPIA_FILTER);
+            pictureBox1.Image = imageFilterRegistry.applyScalarFilter(initialBitmap, multiplier, FilterType.SEPIA_FILTER);
         }
 
         private void negativeScrollBar_Scroll(object sender, ScrollEventArgs e)
         {
             double multiplier = negativeScrollBar.Value * 1.0 / negativeScrollBar.Maximum;
-            pictureBox1.Image = imageFilterRegistry.applyFilter(initialBitmap, multiplier, FilterType.NEGATIVE_FILTER);
+            pictureBox1.Image = imageFilterRegistry.applyScalarFilter(initialBitmap, multiplier, FilterType.NEGATIVE_FILTER);
         }
 
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
@@ -503,7 +498,7 @@ namespace WinFormsApp1
 
         private void helpButton_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
@@ -545,8 +540,8 @@ namespace WinFormsApp1
             filterList.LargeImageList.Images.Clear();
             foreach (FilterType filterType in Enum.GetValues(typeof(FilterType)))
             {
-                filterList.SmallImageList.Images.Add(imageFilterRegistry.applyFilter(new Bitmap(initialBitmap), 1.0, filterType).GetThumbnailImage(128, 128, null, (IntPtr)0));
-                filterList.LargeImageList.Images.Add(imageFilterRegistry.applyFilter(new Bitmap(initialBitmap), 1.0, filterType).GetThumbnailImage(128, 128, null, (IntPtr)0));
+                filterList.SmallImageList.Images.Add(imageFilterRegistry.applyScalarFilter(new Bitmap(initialBitmap), 1.0, filterType).GetThumbnailImage(128, 128, null, (IntPtr)0));
+                filterList.LargeImageList.Images.Add(imageFilterRegistry.applyScalarFilter(new Bitmap(initialBitmap), 1.0, filterType).GetThumbnailImage(128, 128, null, (IntPtr)0));
             }
         }
 
@@ -565,7 +560,7 @@ namespace WinFormsApp1
         private void clientSize_ClientSizeChanged(Object sender, EventArgs e)
         {
             Rectangle resolution = Screen.PrimaryScreen.Bounds;
-            if (resolution == Rectangle.Empty || ((resolution.Width == this.ClientSize.Width) && (resolution.Height== this.ClientSize.Height)))
+            if (resolution == Rectangle.Empty || ((resolution.Width == this.ClientSize.Width) && (resolution.Height == this.ClientSize.Height)))
             {
                 return;
             }

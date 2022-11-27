@@ -1,0 +1,28 @@
+﻿namespace WinFormsApp1.Filter
+{
+    public enum FilterType
+    {
+        TRANSPARENCY_FILTER,
+        GREYSCALE_FILTER,
+        SEPIA_FILTER,
+        NEGATIVE_FILTER,
+        BLUR_FILTER,
+        SHARPEN_FILTER,
+        GAUSSIAN33_FILTER,
+        GAUSSIAN55_FILTER,
+        MEDIAN33_FILTER,
+        MEDIAN55_FILTER,
+        MEDIAN77_FILTER,
+        MEDIAN99_FILTER,
+        MOTION55_FILTER,
+        MOTION55_45_FILTER,
+        MOTION55_135_FILTER,
+        MOTION77_FILTER,
+        MOTION77_45_FILTER,
+        MOTION77_135_FILTER,
+        MOTION99_FILTER,
+        MOTION99_45_FILTER,
+        MOTION99_135_FILTER,
+        NONE_FILTER
+    }
+}

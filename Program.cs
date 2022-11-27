@@ -1,7 +1,5 @@
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WinFormsApp1.Core;
-using WinFormsApp1.Filter;
 
 namespace WinFormsApp1
 {
