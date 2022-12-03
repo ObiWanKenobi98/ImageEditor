@@ -1,14 +1,10 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WinFormsApp1.Core;
 using WinFormsApp1.Filter.Convolution.Blur.Gaussian;
 using WinFormsApp1.Filter.Convolution.Blur.Median;
 using WinFormsApp1.Filter.Convolution.Blur.Motion;
+using WinFormsApp1.Filter.Convolution.Sharp.Laplacian;
 
 namespace WinFormsApp1.Filter.Convolution
 {
@@ -30,7 +26,17 @@ namespace WinFormsApp1.Filter.Convolution
                                                                           .AddTransient<ConvolutionalImageFilter, MotionBlur77_135Filter>()
                                                                           .AddTransient<ConvolutionalImageFilter, MotionBlur99Filter>()
                                                                           .AddTransient<ConvolutionalImageFilter, MotionBlur99_45Filter>()
-                                                                          .AddTransient<ConvolutionalImageFilter, MotionBlur99_135Filter>());
+                                                                          .AddTransient<ConvolutionalImageFilter, MotionBlur99_135Filter>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter1>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter2>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter3>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter4>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter5>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter6>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter7>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter8>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter9>()
+                                                                          .AddTransient<ConvolutionalImageFilter, LaplacianSharpFilter10>());
         }
     }
 }

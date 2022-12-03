@@ -15,7 +15,17 @@ namespace WinFormsApp1.Filter.Applier
             this.cudaConvolutionWrapper = provider.GetRequiredService<CudaConvolutionWrapper>();
         }
         public Image applyFilter(Image image, ConvolutionalImageFilter imageFilter)
-        {/*
+        {
+            NvAPIWrapper.GPU.PhysicalGPU[] physicalGpus = NvAPIWrapper.GPU.PhysicalGPU.GetPhysicalGPUs();
+            if (physicalGpus.Length == 0)
+            {
+                computeConvolutionOnCPU(image, imageFilter);
+            }
+            return cudaConvolutionWrapper.computeConvolutionOnGPU(image, imageFilter);
+        }
+
+        private Image computeConvolutionOnCPU(Image image, ConvolutionalImageFilter imageFilter)
+        {
             double factor = imageFilter.getFactor();
             double bias = imageFilter.getBias();
             if (image == null)
@@ -147,8 +157,7 @@ namespace WinFormsApp1.Filter.Applier
             sourceData = null;
             image = null;
 
-            return resultBitmap;*/
-            return cudaConvolutionWrapper.computeConvolutionOnGPU(image, imageFilter);
+            return resultBitmap;
         }
 
         public void Dispose()

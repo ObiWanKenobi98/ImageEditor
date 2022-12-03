@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing.Imaging;
-using System.Linq;
+﻿using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using WinFormsApp1.Core;
 using WinFormsApp1.Filter;
 
 namespace WinFormsApp1.Cuda
@@ -52,12 +45,13 @@ namespace WinFormsApp1.Cuda
             for (int i = 0; i < outputImageInts.Length; i++)
             {
                 int pixel = outputImageInts[i];
-                outputImageBytes[i * 4] = (byte) (pixel >> 24);
-                outputImageBytes[i * 4 + 1] = (byte) ((pixel << 8) >> 24);
-                outputImageBytes[i * 4 + 2] = (byte) ((pixel << 16) >> 24);
-                outputImageBytes[i * 4 + 3] = (byte) ((pixel << 24) >> 24);
+                outputImageBytes[i * 4] = (byte)(pixel >> 24);
+                outputImageBytes[i * 4 + 1] = (byte)((pixel << 8) >> 24);
+                outputImageBytes[i * 4 + 2] = (byte)((pixel << 16) >> 24);
+                outputImageBytes[i * 4 + 3] = (byte)((pixel << 24) >> 24);
             }
             Buffer.BlockCopy(outputImageInts, 0, outputImageBytes, 0, outputImageBytes.Length);
+            bitmap = new Bitmap(bitmap, new Size(image.Width - covolutionMatrixWidth + 1, image.Height - convolutionMatrixHeight + 1));
             bitmapData = bitmap.LockBits(new Rectangle(0, 0, (image.Width - covolutionMatrixWidth + 1), (image.Height - convolutionMatrixHeight + 1)), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
             scan0 = bitmapData.Scan0;
             Marshal.Copy(outputImageBytes, 0, scan0, outputImageBytes.Length);

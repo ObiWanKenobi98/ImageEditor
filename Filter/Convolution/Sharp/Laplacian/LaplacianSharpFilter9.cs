@@ -1,19 +1,15 @@
-﻿namespace WinFormsApp1.Filter.Convolution
+﻿namespace WinFormsApp1.Filter.Convolution.Sharp.Laplacian
 {
-    internal class ConvolutionalNoneImageFilter : ConvolutionalImageFilter
+    public class LaplacianSharpFilter9 : ConvolutionalImageFilter
     {
-
-        private double[,] convolutionalMatrix = new double[,]
-        {
-            {1, },
-        };
         public void Dispose()
         {
+            throw new NotImplementedException();
         }
 
         public FilterType getApplicableFilterType()
         {
-            return FilterType.CONVOLUTIONAL_NONE_FILTER;
+            throw new NotImplementedException();
         }
 
         public double[,] getCovolutionMatrix()
@@ -23,7 +19,7 @@
 
         public double getFactor()
         {
-            return 1.0;
+            throw new NotImplementedException();
         }
     }
 }
