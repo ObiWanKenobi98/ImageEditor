@@ -1,12 +1,21 @@
-﻿using System.Drawing.Imaging;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using WinFormsApp1.Cuda;
 
 namespace WinFormsApp1.Filter.Applier
 {
     public class DefaultConvolutionalFilterApplier : ConvolutionalFilterApplier
     {
-        public Image applyFilter(Image image, ConvolutionalImageFilter imageFilter)
+
+        private CudaConvolutionWrapper cudaConvolutionWrapper;
+
+        public DefaultConvolutionalFilterApplier(IServiceProvider provider)
         {
+            this.cudaConvolutionWrapper = provider.GetRequiredService<CudaConvolutionWrapper>();
+        }
+        public Image applyFilter(Image image, ConvolutionalImageFilter imageFilter)
+        {/*
             double factor = imageFilter.getFactor();
             double bias = imageFilter.getBias();
             if (image == null)
@@ -138,7 +147,8 @@ namespace WinFormsApp1.Filter.Applier
             sourceData = null;
             image = null;
 
-            return resultBitmap;
+            return resultBitmap;*/
+            return cudaConvolutionWrapper.computeConvolutionOnGPU(image, imageFilter);
         }
 
         public void Dispose()

@@ -29,7 +29,7 @@ namespace WinFormsApp1.Filter
             }
             this.convolutionalImageFilterMap = convolutionalImageFilterMap;
             this.defaultScalarFilterApplier = new DefaultScalarFilterApplier();
-            this.defaultConvolutionalFilterApplier = new DefaultConvolutionalFilterApplier();
+            this.defaultConvolutionalFilterApplier = new DefaultConvolutionalFilterApplier(provider);
         }
 
         public Image applyScalarFilter(Image image, double multiplier, FilterType filterType)
