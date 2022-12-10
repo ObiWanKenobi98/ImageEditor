@@ -1,4 +1,4 @@
-﻿using WinFormsApp1.Core;
+﻿using WinFormsApp1.Core.Image;
 
 namespace WinFormsApp1.Filter
 {

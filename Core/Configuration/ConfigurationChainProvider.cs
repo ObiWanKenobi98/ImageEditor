@@ -3,7 +3,7 @@ using WinFormsApp1.Filter;
 using WinFormsApp1.Filter.Convolution;
 using WinFormsApp1.Filter.Scalar;
 
-namespace WinFormsApp1.Core
+namespace WinFormsApp1.Core.Configuration
 {
     internal class ConfigurationChainProvider
     {

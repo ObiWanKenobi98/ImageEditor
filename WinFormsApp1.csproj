@@ -19,13 +19,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Filter\Convolution\Sharp\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Resources\cudaConvolutionLibrary.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Lut\Enhance\" />
+    <Folder Include="Lut\Heal\" />
+    <Folder Include="Lut\Recolor\" />
   </ItemGroup>
 
 </Project>

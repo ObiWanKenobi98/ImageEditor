@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
+using WinFormsApp1.Core.System;
 
-namespace WinFormsApp1.Core
+namespace WinFormsApp1.Core.Configuration
 {
     public class ConfigurationChainApplier
     {

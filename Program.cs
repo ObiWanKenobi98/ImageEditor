@@ -1,5 +1,5 @@
 using Microsoft.Extensions.Hosting;
-using WinFormsApp1.Core;
+using WinFormsApp1.Core.Configuration;
 
 namespace WinFormsApp1
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 
-namespace WinFormsApp1.Core
+namespace WinFormsApp1.Core.System
 {
     public class HostProvider
     {

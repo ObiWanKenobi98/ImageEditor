@@ -51,19 +51,21 @@ namespace WinFormsApp1.Cuda
                 outputImageBytes[i * 4 + 3] = (byte)((pixel << 24) >> 24);
             }
             Buffer.BlockCopy(outputImageInts, 0, outputImageBytes, 0, outputImageBytes.Length);
-            bitmap = new Bitmap(bitmap, new Size(image.Width - covolutionMatrixWidth + 1, image.Height - convolutionMatrixHeight + 1));
-            bitmapData = bitmap.LockBits(new Rectangle(0, 0, (image.Width - covolutionMatrixWidth + 1), (image.Height - convolutionMatrixHeight + 1)), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
+            Bitmap outputBitmap = new Bitmap(bitmap, new Size(image.Width - covolutionMatrixWidth + 1, image.Height - convolutionMatrixHeight + 1));
+            bitmap = null;
+            bitmapData = outputBitmap.LockBits(new Rectangle(0, 0, (image.Width - covolutionMatrixWidth + 1), (image.Height - convolutionMatrixHeight + 1)), ImageLockMode.ReadWrite, PixelFormat.Format32bppArgb);
             scan0 = bitmapData.Scan0;
             Marshal.Copy(outputImageBytes, 0, scan0, outputImageBytes.Length);
-            bitmap.UnlockBits(bitmapData);
+            outputBitmap.UnlockBits(bitmapData);
             bitmapData = null;
             imageBytes = null;
             image = null;
             convolutionArray = null;
             outputImageInts = null;
             outputImageBytes = null;
+            inputInts = null;
             aux = null;
-            return bitmap;
+            return outputBitmap;
         }
 
         private float[] getFloatConvolutionArray(ConvolutionalImageFilter imageFilter)

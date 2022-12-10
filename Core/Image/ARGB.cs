@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Core
+﻿namespace WinFormsApp1.Core.Image
 {
     public class ARGB
     {
@@ -53,10 +53,10 @@
 
         public ARGB(byte alpha, byte red, byte green, byte blue)
         {
-            this.Alpha = alpha;
-            this.Red = red;
-            this.Green = green;
-            this.Blue = blue;
+            Alpha = alpha;
+            Red = red;
+            Green = green;
+            Blue = blue;
         }
     }
 }

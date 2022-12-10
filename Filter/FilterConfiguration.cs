@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WinFormsApp1.Core;
+using WinFormsApp1.Core.Configuration;
 using WinFormsApp1.Filter.Preview;
 
 namespace WinFormsApp1.Filter

@@ -2,24 +2,29 @@
 {
     public class LaplacianSharpFilter2 : ConvolutionalImageFilter
     {
+
+        private double[,] convolutionMatrix = new double[,] {
+                    {  1, 1, 1, },
+                    {  1, -7, 1, },
+                    {  1, 1, 1, },
+                };
         public void Dispose()
         {
-            throw new NotImplementedException();
         }
 
         public FilterType getApplicableFilterType()
         {
-            throw new NotImplementedException();
+            return FilterType.LAPLACIAN2_FILTER;
         }
 
         public double[,] getCovolutionMatrix()
         {
-            throw new NotImplementedException();
+            return convolutionMatrix;
         }
 
         public double getFactor()
         {
-            throw new NotImplementedException();
+            return 1.0;
         }
     }
 }
