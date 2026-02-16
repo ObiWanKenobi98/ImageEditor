@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Hosting;
-using WinFormsApp1.Core.System;
+using ImageEditor.Core.System;
 
-namespace WinFormsApp1.Core.Configuration
+namespace ImageEditor.Core.Configuration
 {
     public class ConfigurationChainApplier
     {

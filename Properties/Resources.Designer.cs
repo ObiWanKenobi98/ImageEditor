@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WinFormsApp1.Properties {
+namespace ImageEditor.Properties {
     using System;
     
     

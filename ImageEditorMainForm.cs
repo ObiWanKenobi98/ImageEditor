@@ -1,19 +1,19 @@
 using Microsoft.Extensions.DependencyInjection;
-using WinFormsApp1.Core.System;
-using WinFormsApp1.Filter;
-using WinFormsApp1.Filter.Preview;
+using ImageEditor.Core.System;
+using ImageEditor.Filter;
+using ImageEditor.Filter.Preview;
 using static System.Windows.Forms.ListView;
 
-namespace WinFormsApp1
+namespace ImageEditor
 {
-    public partial class Form1 : Form
+    public partial class ImageEditorMainForm : Form
     {
 
         private static string FILE_NOT_UPLOADED_MESSAGE = "There is no uploded file that can be saved!";
         private static string FILE_NOT_UPLOADED_MESSAGE_BOX = "File not uploaded MessageBox";
         private static string FILTER_UNUSABLE_MESSAGE = "OOPS! This filter type can not be used right now.";
         private static string FILTER_UNUSABLE_MESSAGE_BOX = "Filter Type can not be used MessageBox";
-        public Form1(IServiceProvider provider)
+        public ImageEditorMainForm(IServiceProvider provider)
         {
             InitializeComponent();
             this.imageFilterRegistry = provider.GetRequiredService<ImageFilterRegistry>();

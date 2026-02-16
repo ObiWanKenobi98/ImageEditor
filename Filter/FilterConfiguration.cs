@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WinFormsApp1.Core.Configuration;
-using WinFormsApp1.Filter.Preview;
+using ImageEditor.Core.Configuration;
+using ImageEditor.Filter.Preview;
 
-namespace WinFormsApp1.Filter
+namespace ImageEditor.Filter
 {
     public class FilterConfiguration : ConfigurationChain
     {

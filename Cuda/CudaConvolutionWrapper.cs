@@ -1,14 +1,19 @@
 ﻿using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using WinFormsApp1.Filter;
+using ImageEditor.Filter;
 
-namespace WinFormsApp1.Cuda
+namespace ImageEditor.Cuda
 {
     public class CudaConvolutionWrapper
     {
 
         [DllImport("cudaConvolutionLibrary.dll", CharSet = CharSet.Ansi, SetLastError = true, CallingConvention = CallingConvention.StdCall)]
-        public static extern void computeMatrixConvolution(int[] inputPixelArray, int rowSize, int columnSize, float[] kernelPixelArray, int kernelRowSize, int kernelColumnSize, int[] outputPixelArray, int requiredThreadsPerBlock);
+        public static extern void computeMatrixConvolutionGpu(int[] inputPixelArray, int rowSize, int columnSize, float[] kernelPixelArray, int kernelRowSize, int kernelColumnSize, int[] outputPixelArray, int requiredThreadsPerBlock);
+        [DllImport("cudaConvolutionLibrary.dll", CharSet = CharSet.Ansi, SetLastError = true, CallingConvention = CallingConvention.StdCall)]
+        public static extern void computeMatrixConvolutionCpu(int[] inputPixelArray, int rowSize, int columnSize, float[] kernelPixelArray, int kernelRowSize, int kernelColumnSize, int[] outputPixelMatrix);
+        [DllImport("cudaConvolutionLibrary.dll", CharSet = CharSet.Ansi, SetLastError = true, CallingConvention = CallingConvention.StdCall)]
+        public static extern void computeMatrixConvolution(int[] inputPixelArray, int rowSize, int columnSize, float[] kernelPixelArray, int kernelRowSize, int kernelColumnSize, int[] outputPixelMatrix, int requiredThreadsPerBlock);
+
 
         public Image computeConvolutionOnGPU(Image image, ConvolutionalImageFilter imageFilter)
         {
@@ -40,7 +45,7 @@ namespace WinFormsApp1.Cuda
             }
             int outputImageSize = (image.Height - convolutionMatrixHeight + 1) * (image.Width - covolutionMatrixWidth + 1);
             int[] outputImageInts = new int[outputImageSize];
-            computeMatrixConvolution(inputInts, image.Height, image.Width, convolutionArray, convolutionMatrixHeight, covolutionMatrixWidth, outputImageInts, 32);
+            computeMatrixConvolutionGpu(inputInts, image.Height, image.Width, convolutionArray, convolutionMatrixHeight, covolutionMatrixWidth, outputImageInts, 32);
             byte[] outputImageBytes = new byte[outputImageSize * sizeof(int)];
             for (int i = 0; i < outputImageInts.Length; i++)
             {

@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Lut
+﻿namespace ImageEditor.Lut
 {
     internal class LutGroupType
     {

@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Core.Image
+﻿namespace ImageEditor.Core.Image
 {
     public class ARGB
     {

@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Filter
+﻿namespace ImageEditor.Filter
 {
     internal class FilterGroup
     {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 
-namespace WinFormsApp1.Core.Configuration
+namespace ImageEditor.Core.Configuration
 {
     public interface ConfigurationChain
     {

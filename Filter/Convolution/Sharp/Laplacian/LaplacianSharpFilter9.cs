@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Filter.Convolution.Sharp.Laplacian
+﻿namespace ImageEditor.Filter.Convolution.Sharp.Laplacian
 {
     public class LaplacianSharpFilter9 : ConvolutionalImageFilter
     {

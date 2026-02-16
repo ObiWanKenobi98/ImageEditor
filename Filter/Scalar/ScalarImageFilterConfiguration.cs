@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WinFormsApp1.Core.Configuration;
+using ImageEditor.Core.Configuration;
 
-namespace WinFormsApp1.Filter.Scalar
+namespace ImageEditor.Filter.Scalar
 {
     public class ScalarImageFilterConfiguration : ConfigurationChain
     {

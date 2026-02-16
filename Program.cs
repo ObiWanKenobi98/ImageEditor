@@ -1,7 +1,7 @@
 using Microsoft.Extensions.Hosting;
-using WinFormsApp1.Core.Configuration;
+using ImageEditor.Core.Configuration;
 
-namespace WinFormsApp1
+namespace ImageEditor
 {
     internal static class Program
     {
@@ -15,7 +15,7 @@ namespace WinFormsApp1
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             IHost host = ConfigurationChainApplier.buildHost(ConfigurationChainProvider.provideConfigurationChain());
-            Application.Run(new Form1(host.Services));
+            Application.Run(new ImageEditorMainForm(host.Services));
         }
     }
 }

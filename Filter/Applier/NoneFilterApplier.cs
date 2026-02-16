@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Filter.Applier
+﻿namespace ImageEditor.Filter.Applier
 {
     public class NoneFilterApplier : FilterApplier
     {

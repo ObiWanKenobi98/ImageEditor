@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Filter.Convolution.Blur.Motion
+﻿namespace ImageEditor.Filter.Convolution.Blur.Motion
 {
     public class MotionBlur77_135Filter : ConvolutionalImageFilter
     {

@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Filter.Convolution
+﻿namespace ImageEditor.Filter.Convolution
 {
     internal class ConvolutionalNoneImageFilter : ConvolutionalImageFilter
     {

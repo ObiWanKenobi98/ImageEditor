@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WinFormsApp1.Core.Configuration;
+using ImageEditor.Core.Configuration;
 
-namespace WinFormsApp1.Cuda
+namespace ImageEditor.Cuda
 {
     public class CudaConfiguration : ConfigurationChain
     {

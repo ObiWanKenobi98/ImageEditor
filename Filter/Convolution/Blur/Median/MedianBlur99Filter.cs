@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Filter.Convolution.Blur.Median
+﻿namespace ImageEditor.Filter.Convolution.Blur.Median
 {
     public class MedianBlur99Filter : ConvolutionalImageFilter
     {

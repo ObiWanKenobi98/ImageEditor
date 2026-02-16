@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Filter.Convolution.Blur.Gaussian
+﻿namespace ImageEditor.Filter.Convolution.Blur.Gaussian
 {
     internal class GaussianBlur33Filter : ConvolutionalImageFilter
     {

@@ -1,9 +1,9 @@
-﻿using WinFormsApp1.Cuda;
-using WinFormsApp1.Filter;
-using WinFormsApp1.Filter.Convolution;
-using WinFormsApp1.Filter.Scalar;
+﻿using ImageEditor.Cuda;
+using ImageEditor.Filter;
+using ImageEditor.Filter.Convolution;
+using ImageEditor.Filter.Scalar;
 
-namespace WinFormsApp1.Core.Configuration
+namespace ImageEditor.Core.Configuration
 {
     internal class ConfigurationChainProvider
     {

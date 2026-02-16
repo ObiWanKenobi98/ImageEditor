@@ -1,6 +1,6 @@
-﻿using WinFormsApp1.Core.Image;
+﻿using ImageEditor.Core.Image;
 
-namespace WinFormsApp1.Filter
+namespace ImageEditor.Filter
 {
     public interface ScalarImageFilter : ImageFilter
     {

@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Core.External
+﻿namespace ImageEditor.Core.External
 {
     internal class ExternalDependenciesLoader
     {

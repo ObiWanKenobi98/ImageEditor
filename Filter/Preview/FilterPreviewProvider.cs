@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace WinFormsApp1.Filter.Preview
+namespace ImageEditor.Filter.Preview
 {
     public class FilterPreviewProvider
     {

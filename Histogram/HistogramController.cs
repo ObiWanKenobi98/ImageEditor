@@ -1,4 +1,4 @@
-﻿namespace WinFormsApp1.Histogram
+﻿namespace ImageEditor.Histogram
 {
     /*
      * TODO: adjust the histogram for an image

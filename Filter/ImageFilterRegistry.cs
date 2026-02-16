@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using WinFormsApp1.Filter.Applier;
-using WinFormsApp1.Filter.Convolution;
-using WinFormsApp1.Filter.Scalar;
+using ImageEditor.Filter.Applier;
+using ImageEditor.Filter.Convolution;
+using ImageEditor.Filter.Scalar;
 
-namespace WinFormsApp1.Filter
+namespace ImageEditor.Filter
 {
     public class ImageFilterRegistry
     {

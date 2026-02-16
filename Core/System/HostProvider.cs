@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Hosting;
 
-namespace WinFormsApp1.Core.System
+namespace ImageEditor.Core.System
 {
     public class HostProvider
     {

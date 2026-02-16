@@ -1,8 +1,8 @@
 ﻿using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using WinFormsApp1.Core.Image;
+using ImageEditor.Core.Image;
 
-namespace WinFormsApp1.Filter.Applier
+namespace ImageEditor.Filter.Applier
 {
     public class DefaultScalarFilterApplier : ScalarFilterApplier
     {

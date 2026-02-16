@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
-using WinFormsApp1.Cuda;
+using ImageEditor.Cuda;
 
-namespace WinFormsApp1.Filter.Applier
+namespace ImageEditor.Filter.Applier
 {
     public class DefaultConvolutionalFilterApplier : ConvolutionalFilterApplier
     {

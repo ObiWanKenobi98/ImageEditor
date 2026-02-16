@@ -1,12 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using WinFormsApp1.Core.Configuration;
-using WinFormsApp1.Filter.Convolution.Blur.Gaussian;
-using WinFormsApp1.Filter.Convolution.Blur.Median;
-using WinFormsApp1.Filter.Convolution.Blur.Motion;
-using WinFormsApp1.Filter.Convolution.Sharp.Laplacian;
+using ImageEditor.Core.Configuration;
+using ImageEditor.Filter.Convolution.Blur.Gaussian;
+using ImageEditor.Filter.Convolution.Blur.Median;
+using ImageEditor.Filter.Convolution.Blur.Motion;
+using ImageEditor.Filter.Convolution.Sharp.Laplacian;
 
-namespace WinFormsApp1.Filter.Convolution
+namespace ImageEditor.Filter.Convolution
 {
     internal class ConvolutionImageFilterConfiguration : ConfigurationChain
     {

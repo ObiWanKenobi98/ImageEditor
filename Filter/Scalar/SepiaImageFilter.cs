@@ -1,6 +1,6 @@
-﻿using WinFormsApp1.Core.Image;
+﻿using ImageEditor.Core.Image;
 
-namespace WinFormsApp1.Filter.Scalar
+namespace ImageEditor.Filter.Scalar
 {
     public class SepiaImageFilter : ScalarImageFilter
     {
