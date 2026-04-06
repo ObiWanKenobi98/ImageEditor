@@ -1,7 +1,7 @@
-using Microsoft.Extensions.DependencyInjection;
 using ImageEditor.Core.System;
 using ImageEditor.Filter;
 using ImageEditor.Filter.Preview;
+using Microsoft.Extensions.DependencyInjection;
 using static System.Windows.Forms.ListView;
 
 namespace ImageEditor
@@ -18,7 +18,7 @@ namespace ImageEditor
             InitializeComponent();
             this.imageFilterRegistry = provider.GetRequiredService<ImageFilterRegistry>();
             this.filterPreviewProvider = provider.GetRequiredService<FilterPreviewProvider>();
-            this.systemStatusHolder = new SystemStatusHolder(pictureBox1.Image != null ? new Bitmap(pictureBox1.Image) : null, filterList.SmallImageList);
+            this.systemStatusHolder = new SystemStatusHolder(pictureBox.Image != null ? new Bitmap(pictureBox.Image) : null, filterList.SmallImageList);
             this.filterList.Visible = false;
         }
 
@@ -26,7 +26,7 @@ namespace ImageEditor
         private FilterPreviewProvider filterPreviewProvider;
         private SystemStatusHolder systemStatusHolder;
 
-        private void listView1_ItemCheck(object sender, ItemCheckEventArgs e)
+        private void listView_ItemCheck(object sender, ItemCheckEventArgs e)
         {
             ListViewItemCollection items = filterList.Items;
             CheckedListViewItemCollection checkedItems = filterList.CheckedItems;
@@ -43,11 +43,11 @@ namespace ImageEditor
                     List<FilterType> convolutionalFilterTypes = imageFilterRegistry.getConvolutionalFilterTypes();
                     if (scalarFilterTypes.Contains(filterType))
                     {
-                        pictureBox1.Image = imageFilterRegistry.applyScalarFilter(pictureBox1.Image, 1.0, filterType);
+                        pictureBox.Image = imageFilterRegistry.applyScalarFilter(pictureBox.Image, 1.0, filterType);
                     }
                     else if (convolutionalFilterTypes.Contains(filterType))
                     {
-                        pictureBox1.Image = imageFilterRegistry.applyConvolutionalFilter(pictureBox1.Image, filterType);
+                        pictureBox.Image = imageFilterRegistry.applyConvolutionalFilter(pictureBox.Image, filterType);
                     }
                     else
                     {
@@ -68,13 +68,13 @@ namespace ImageEditor
                 {
                     items[i].ForeColor = SystemColors.WindowText;
                 }
-                pictureBox1.Image = systemStatusHolder.bitmap;
+                pictureBox.Image = systemStatusHolder.bitmap;
             }
         }
 
         private void generateFilterPreviews(EventArgs e)
         {
-            Image image = pictureBox1.Image;
+            Image image = pictureBox.Image;
             if (image == null)
             {
                 MessageBox.Show(FILE_NOT_UPLOADED_MESSAGE, FILE_NOT_UPLOADED_MESSAGE_BOX, MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -96,7 +96,7 @@ namespace ImageEditor
                 items[i].Checked = false;
                 items[i].Selected = false;
             }
-            pictureBox1.Image = systemStatusHolder.bitmap;
+            pictureBox.Image = systemStatusHolder.bitmap;
         }
 
         private void clientSize_ClientSizeChanged(Object sender, EventArgs e)
@@ -107,29 +107,30 @@ namespace ImageEditor
                 return;
             }
             this.ClientSize = new Size(resolution.Width, resolution.Height);
-            this.tableLayoutPanel1.Size = new Size(resolution.Width, resolution.Height);
+            this.tableLayoutPanel.Size = new Size(resolution.Width, resolution.Height);
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Load(openFileDialog1.FileName);
+                pictureBox.Load(openFileDialog.FileName);
                 generateFilterPreviews(e);
-                systemStatusHolder.bitmap = new Bitmap(pictureBox1.Image);
+                systemStatusHolder.bitmap = new Bitmap(pictureBox.Image);
+                filterList.Visible = true;
             }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (pictureBox1.Image == null)
+            if (pictureBox.Image == null)
             {
                 MessageBox.Show(FILE_NOT_UPLOADED_MESSAGE, FILE_NOT_UPLOADED_MESSAGE_BOX, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                pictureBox1.Image.Save(saveFileDialog1.FileName);
+                pictureBox.Image.Save(saveFileDialog.FileName);
             }
         }
 
@@ -140,7 +141,7 @@ namespace ImageEditor
 
         private void clearToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = null;
+            pictureBox.Image = null;
             restoreFilterPreviews();
             filterList.AutoScrollOffset = new Point(0, 0);
             filterList.EnsureVisible(0);
